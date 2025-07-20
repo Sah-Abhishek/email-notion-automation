@@ -40,6 +40,8 @@ export default async function handler(req, res) {
       }
     );
 
+    console.log("This is the response: ", response);
+
     // Send actual data received from Perplexity
     return res.status(200).json({ message: 'Extracted data', data: response.data });
   } catch (error) {
