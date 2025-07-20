@@ -1,4 +1,6 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+import axios from 'axios';
+dotenv.config();
 
 export default async function handler(req, res) {
 
