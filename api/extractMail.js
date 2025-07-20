@@ -1,19 +1,8 @@
-export default async function handler(req, res) {
-  if (req.method() === 'POST') {
-    const { subject, body } = req.body;
-
-    console.log("Webhook Recieved");
-
-    console.log("Subject: ", subject);
-    console.log("Body: ", body);
-
-    res.status(200).json({
-      message: "Email Recieved"
-    })
-
+export default function handler(req, res) {
+  if (req.method === 'POST') {
+    console.log('Body received:', req.body);
+    return res.status(200).json({ message: 'Mail received', body: req.body });
   } else {
-    res.status(405).json({
-      message: "Method not allowed"
-    })
+    return res.status(405).json({ message: 'Method Not Allowed' });
   }
 }
