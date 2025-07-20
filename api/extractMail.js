@@ -4,6 +4,8 @@ dotenv.config();
 
 export default async function handler(req, res) {
 
+  const { subject, body } = req.body;
+
   const apiKey = process.env.API_KEY;
   if (req.method === 'POST') {
 
@@ -19,7 +21,7 @@ export default async function handler(req, res) {
           },
           {
             role: "user",
-            content: `Extract the details from this email: ${emailContent}`
+            content: `Extract the details from this email:\nSubject: ${subject}\nBody: ${body}`
           }
         ]
       },
